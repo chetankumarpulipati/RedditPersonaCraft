@@ -5,12 +5,12 @@
 ## 🗂️ Version 1.0
 Initial release with core persona generation, data scraping, AI analysis, and web interface.
 
-### Example Output (Version 1.0)
+### Example Output (Version 1.0) - master branch
 ![Version 1 Persona Card](screenshots/v-1.0.png)
 
 ---
 
-## 🆕 Version 2.0
+## 🆕 Version 2.0 - version-2.0 branch
 Implemented source citation system: persona attributes now link to specific Reddit posts/comments.
 Citation reports generated in HTML and text formats.
 Improved output structure and traceability.
