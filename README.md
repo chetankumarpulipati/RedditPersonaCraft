@@ -6,7 +6,7 @@
 Initial release with core persona generation, data scraping, AI analysis, and web interface.
 
 ### Example Output (Version 1.0)
-![Version 1 Persona Card](screenshots/version1_persona_card.png)
+![Version 1 Persona Card](screenshots/v-1.0.png)
 
 ---
 
@@ -16,8 +16,7 @@ Citation reports generated in HTML and text formats.
 Improved output structure and traceability.
 
 ### Example Output (Version 2.0)
-![Version 2 Persona Card](screenshots/version2_persona_card.png)
-![Citation Report Example](screenshots/citation_report_example.png)
+![Version 2 Persona Card](screenshots/v-2.0.png)
 
 ---
 
