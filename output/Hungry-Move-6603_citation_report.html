@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reddit Persona Analysis - Hungry-Move-6603</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,255,255,0.1)"><polygon points="0,0 1000,100 1000,0"/></svg>');
+            background-size: cover;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header .username {
+            font-size: 1.5em;
+            font-weight: 400;
+            color: #3498db;
+            margin-bottom: 15px;
+        }
+
+        .header .timestamp {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+            overflow-x: auto;
+            padding: 0 20px;
+        }
+
+        .nav-tab {
+            padding: 20px 30px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            border-bottom: 3px solid transparent;
+        }
+
+        .nav-tab:hover {
+            color: #3498db;
+            background: rgba(52, 152, 219, 0.1);
+        }
+
+        .nav-tab.active {
+            color: #3498db;
+            border-bottom-color: #3498db;
+            background: rgba(52, 152, 219, 0.1);
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            font-size: 2em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title i {
+            color: #3498db;
+        }
+
+        .demographic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .demographic-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid #3498db;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .demographic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(52, 152, 219, 0.2);
+        }
+
+        .demographic-card h3 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .demographic-value {
+            font-size: 1.1em;
+            color: #3498db;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .trait-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .trait-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid #e9ecef;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trait-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+        }
+
+        .trait-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: #3498db;
+        }
+
+        .trait-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .trait-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        .evidence-list {
+            margin-bottom: 15px;
+        }
+
+        .evidence-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid #3498db;
+        }
+
+        .evidence-type {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .evidence-content {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-style: italic;
+            color: #555;
+            margin: 10px 0;
+            border: 1px solid #e9ecef;
+        }
+
+        .evidence-explanation {
+            color: #2ecc71;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+
+        .source-summary {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+
+        .source-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #3498db;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .subreddit-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .subreddit-tag {
+            background: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .subreddit-tag:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .post-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .post-list li {
+            background: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border-left: 4px solid #2ecc71;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #3498db;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: #2980b9;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .demographic-grid,
+            .trait-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-tabs {
+                padding: 0 10px;
+            }
+            
+            .nav-tab {
+                padding: 15px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-chart-line"></i> Reddit Persona Analysis</h1>
+                <div class="username">@Hungry-Move-6603</div>
+                <div class="timestamp">
+                    <i class="fas fa-clock"></i> Generated: July 15, 2025 at 21:49:13
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('demographics')">
+                <i class="fas fa-user"></i> Demographics
+            </button>
+            <button class="nav-tab" onclick="showTab('traits')">
+                <i class="fas fa-brain"></i> Personality Traits
+            </button>
+            <button class="nav-tab" onclick="showTab('motivations')">
+                <i class="fas fa-rocket"></i> Motivations
+            </button>
+            <button class="nav-tab" onclick="showTab('behavior')">
+                <i class="fas fa-sync"></i> Behavior
+            </button>
+            <button class="nav-tab" onclick="showTab('goals')">
+                <i class="fas fa-target"></i> Goals
+            </button>
+            <button class="nav-tab" onclick="showTab('frustrations')">
+                <i class="fas fa-exclamation-triangle"></i> Frustrations
+            </button>
+            <button class="nav-tab" onclick="showTab('sources')">
+                <i class="fas fa-database"></i> Sources
+            </button>
+        </div>
+
+        <div class="content">
+            <!-- Demographics Tab -->
+            <div id="demographics" class="tab-content active">
+                <div class="section-title">
+                    <i class="fas fa-user-circle"></i>
+                    Demographic Analysis
+                </div>
+                
+                <div class="demographic-grid">
+                    
+                    <div class="demographic-card">
+                        <h3><i class="fas fa-user"></i> Name</h3>
+                        <div class="demographic-value">Unknown</div>
+                </div>
+                    <div class="demographic-card">
+                        <h3><i class="fas fa-user"></i> Age</h3>
+                        <div class="demographic-value">25-35 (estimated)</div>
+                
+                        <div class="evidence-item">
+                            <span class="evidence-type">COMMENT</span>
+                            <div class="evidence-content">
+                                "I was caught without helmet and license (close to my home). Cops outright wanted to fine me, but a 'common guy' came in and discussed bribe on my behalf with cops. I gave him 200rs (back in 2011) and ..."
+                            </div>
+                            <div class="evidence-explanation">
+                                <i class="fas fa-lightbulb"></i> Time reference 'back in 2011' suggests age range
+                            </div>
+                        </div>
+                        </div>
+                    <div class="demographic-card">
+                        <h3><i class="fas fa-user"></i> Occupation</h3>
+                        <div class="demographic-value">Business/Professional</div>
+                
+                        <div class="evidence-item">
+                            <span class="evidence-type">POST</span>
+                            <div class="evidence-content">
+                                "Everyone is something in LKO Born and raised in Delhi - I shifted to LKO in Dec 24 for business purposes. I have hardly seen a car which does not have a sticker on it - everyone is uttar pradesh sarka..."
+                            </div>
+                            <div class="evidence-explanation">
+                                <i class="fas fa-lightbulb"></i> Mentioned 'business' suggesting professional background
+                            </div>
+                        </div>
+                        </div>
+                    <div class="demographic-card">
+                        <h3><i class="fas fa-user"></i> Location</h3>
+                        <div class="demographic-value">Lucknow</div>
+                
+                        <div class="evidence-item">
+                            <span class="evidence-type">POST</span>
+                            <div class="evidence-content">
+                                "Productive weekend activities in LKO? [removed]"
+                            </div>
+                            <div class="evidence-explanation">
+                                <i class="fas fa-lightbulb"></i> Mentioned 'LKO' in post
+                            </div>
+                        </div>
+                        
+                        <div class="evidence-item">
+                            <span class="evidence-type">POST</span>
+                            <div class="evidence-content">
+                                "Everyone is something in LKO Born and raised in Delhi - I shifted to LKO in Dec 24 for business purposes. I have hardly seen a car which does not have a sticker on it - everyone is uttar pradesh sarka..."
+                            </div>
+                            <div class="evidence-explanation">
+                                <i class="fas fa-lightbulb"></i> Mentioned 'shifted to' in post
+                            </div>
+                        </div>
+                        
+                        <div class="evidence-item">
+                            <span class="evidence-type">POST</span>
+                            <div class="evidence-content">
+                                "Everyone is something in LKO Born and raised in Delhi - I shifted to LKO in Dec 24 for business purposes. I have hardly seen a car which does not have a sticker on it - everyone is uttar pradesh sarka..."
+                            </div>
+                            <div class="evidence-explanation">
+                                <i class="fas fa-lightbulb"></i> Mentioned 'in Delhi' in post
+                            </div>
+                        </div>
+                        
+                        <div class="evidence-item">
+                            <span class="evidence-type">POST</span>
+                            <div class="evidence-content">
+                                "Everyone is something in LKO Born and raised in Delhi - I shifted to LKO in Dec 24 for business purposes. I have hardly seen a car which does not have a sticker on it - everyone is uttar pradesh sarka..."
+                            </div>
+                            <div class="evidence-explanation">
+                                <i class="fas fa-lightbulb"></i> Mentioned 'LKO' in post
+                            </div>
+                        </div>
+                        </div>
+                    <div class="demographic-card">
+                        <h3><i class="fas fa-user"></i> Status</h3>
+                        <div class="demographic-value">Unknown</div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Personality Traits Tab -->
+            <div id="traits" class="tab-content">
+                <div class="section-title">
+                    <i class="fas fa-brain"></i>
+                    Personality Traits
+                </div>
+                
+                <div class="trait-grid">
+                    
+                    <div class="trait-card">
+                        <div class="trait-title">
+                            <div class="trait-icon"><i class="fas fa-brain"></i></div>
+                            Curious/Intellectual
+                        </div>
+                        <div class="evidence-list">
+                
+                            <div class="evidence-item">
+                                <span class="evidence-type">POST</span>
+                                <div class="evidence-content">
+                                    "Reading Cafe / Reader' Club? [removed]"
+                                </div>
+                                <div class="evidence-explanation">
+                                    <i class="fas fa-lightbulb"></i> Shows interest in intellectual activities like reading cafes and productive activities
+                                </div>
+                            </div>
+                        </div></div>
+                    <div class="trait-card">
+                        <div class="trait-title">
+                            <div class="trait-icon"><i class="fas fa-brain"></i></div>
+                            Curious/Intellectual
+                        </div>
+                        <div class="evidence-list">
+                
+                            <div class="evidence-item">
+                                <span class="evidence-type">POST</span>
+                                <div class="evidence-content">
+                                    "Productive weekend activities in LKO? [removed]"
+                                </div>
+                                <div class="evidence-explanation">
+                                    <i class="fas fa-lightbulb"></i> Shows interest in intellectual activities like reading cafes and productive activities
+                                </div>
+                            </div>
+                        </div></div>
+                    <div class="trait-card">
+                        <div class="trait-title">
+                            <div class="trait-icon"><i class="fas fa-brain"></i></div>
+                            Observant
+                        </div>
+                        <div class="evidence-list">
+                
+                            <div class="evidence-item">
+                                <span class="evidence-type">POST</span>
+                                <div class="evidence-content">
+                                    "Everyone is something in LKO Born and raised in Delhi - I shifted to LKO in Dec 24 for business purposes. I have hardly seen a car which does not have a sticker on it - everyone is uttar pradesh sarka..."
+                                </div>
+                                <div class="evidence-explanation">
+                                    <i class="fas fa-lightbulb"></i> Makes detailed observations about local culture and people
+                                </div>
+                            </div>
+                        </div></div>
+                    <div class="trait-card">
+                        <div class="trait-title">
+                            <div class="trait-icon"><i class="fas fa-brain"></i></div>
+                            Direct Communicator
+                        </div>
+                        <div class="evidence-list">
+                
+                            <div class="evidence-item">
+                                <span class="evidence-type">COMMENT</span>
+                                <div class="evidence-content">
+                                    "Scam."
+                                </div>
+                                <div class="evidence-explanation">
+                                    <i class="fas fa-lightbulb"></i> Uses concise, direct language to express opinions
+                                </div>
+                            </div>
+                        </div></div>
+                    <div class="trait-card">
+                        <div class="trait-title">
+                            <div class="trait-icon"><i class="fas fa-brain"></i></div>
+                            Street-smart/Experienced
+                        </div>
+                        <div class="evidence-list">
+                
+                            <div class="evidence-item">
+                                <span class="evidence-type">COMMENT</span>
+                                <div class="evidence-content">
+                                    "I was caught without helmet and license (close to my home). Cops outright wanted to fine me, but a 'common guy' came in and discussed bribe on my behalf with cops. I gave him 200rs (back in 2011) and ..."
+                                </div>
+                                <div class="evidence-explanation">
+                                    <i class="fas fa-lightbulb"></i> Shares practical knowledge about dealing with authority figures
+                                </div>
+                            </div>
+                        </div></div>
+                    <div class="trait-card">
+                        <div class="trait-title">
+                            <div class="trait-icon"><i class="fas fa-brain"></i></div>
+                            Street-smart/Experienced
+                        </div>
+                        <div class="evidence-list">
+                
+                            <div class="evidence-item">
+                                <span class="evidence-type">COMMENT</span>
+                                <div class="evidence-content">
+                                    "Cops keep a civ around to discuss bribes."
+                                </div>
+                                <div class="evidence-explanation">
+                                    <i class="fas fa-lightbulb"></i> Shares practical knowledge about dealing with authority figures
+                                </div>
+                            </div>
+                        </div></div>
+                </div>
+            </div>
+
+            <!-- Motivations Tab -->
+            <div id="motivations" class="tab-content">
+                <div class="section-title">
+                    <i class="fas fa-rocket"></i>
+                    Motivations
+                </div>
+                
+                <div class="trait-grid">
+                    
+                    <div class="trait-card">
+                        <div class="trait-title">
+                            <div class="trait-icon"><i class="fas fa-rocket"></i></div>
+                            Unknown
+                        </div>
+                        <div class="evidence-list">
+                
+                            <div class="evidence-item">
+                                <span class="evidence-type">POST</span>
+                                <div class="evidence-content">
+                                    "Reading Cafe / Reader' Club? [removed]"
+                                </div>
+                                <div class="evidence-explanation">
+                                    <i class="fas fa-lightbulb"></i> Actively seeks community activities and social engagement
+                                </div>
+                            </div>
+                        </div></div>
+                    <div class="trait-card">
+                        <div class="trait-title">
+                            <div class="trait-icon"><i class="fas fa-rocket"></i></div>
+                            Unknown
+                        </div>
+                        <div class="evidence-list">
+                
+                            <div class="evidence-item">
+                                <span class="evidence-type">POST</span>
+                                <div class="evidence-content">
+                                    "Productive weekend activities in LKO? [removed]"
+                                </div>
+                                <div class="evidence-explanation">
+                                    <i class="fas fa-lightbulb"></i> Actively seeks community activities and social engagement
+                                </div>
+                            </div>
+                        </div></div>
+                    <div class="trait-card">
+                        <div class="trait-title">
+                            <div class="trait-icon"><i class="fas fa-rocket"></i></div>
+                            Unknown
+                        </div>
+                        <div class="evidence-list">
+                
+                            <div class="evidence-item">
+                                <span class="evidence-type">POST</span>
+                                <div class="evidence-content">
+                                    "Everyone is something in LKO Born and raised in Delhi - I shifted to LKO in Dec 24 for business purposes. I have hardly seen a car which does not have a sticker on it - everyone is uttar pradesh sarka..."
+                                </div>
+                                <div class="evidence-explanation">
+                                    <i class="fas fa-lightbulb"></i> Shows desire to understand local culture and phenomena
+                                </div>
+                            </div>
+                        </div></div>
+                </div>
+            </div>
+
+            <!-- Behavior Tab -->
+            <div id="behavior" class="tab-content">
+                <div class="section-title">
+                    <i class="fas fa-sync"></i>
+                    Habits & Behaviors
+                </div>
+                
+                <div class="trait-grid">
+                    
+                    <div class="trait-card">
+                        <div class="trait-title">
+                            <div class="trait-icon"><i class="fas fa-sync"></i></div>
+                            Unknown
+                        </div>
+                        <div class="evidence-list">
+                
+                            <div class="evidence-item">
+                                <span class="evidence-type">ANALYSIS</span>
+                                <div class="evidence-content">
+                                    "Created 3 posts and 12 comments"
+                                </div>
+                                <div class="evidence-explanation">
+                                    <i class="fas fa-lightbulb"></i> Regular posting and commenting activity
+                                </div>
+                            </div>
+                        </div></div>
+                    <div class="trait-card">
+                        <div class="trait-title">
+                            <div class="trait-icon"><i class="fas fa-sync"></i></div>
+                            Unknown
+                        </div>
+                        <div class="evidence-list">
+                
+                            <div class="evidence-item">
+                                <span class="evidence-type">ANALYSIS</span>
+                                <div class="evidence-content">
+                                    "Active in 6 different subreddits: nagpur, indiasocial, amiugly"
+                                </div>
+                                <div class="evidence-explanation">
+                                    <i class="fas fa-lightbulb"></i> Engages across multiple communities
+                                </div>
+                            </div>
+                        </div></div>
+                </div>
+            </div>
+
+            <!-- Goals Tab -->
+            <div id="goals" class="tab-content">
+                <div class="section-title">
+                    <i class="fas fa-target"></i>
+                    Goals & Needs
+                </div>
+                
+                <div class="trait-grid">
+                    
+                    <div class="trait-card">
+                        <div class="trait-title">
+                            <div class="trait-icon"><i class="fas fa-target"></i></div>
+                            Unknown
+                        </div>
+                        <div class="evidence-list">
+                
+                            <div class="evidence-item">
+                                <span class="evidence-type">POST</span>
+                                <div class="evidence-content">
+                                    "Reading Cafe / Reader' Club? [removed]"
+                                </div>
+                                <div class="evidence-explanation">
+                                    <i class="fas fa-lightbulb"></i> Seeks social activities and community engagement
+                                </div>
+                            </div>
+                        </div></div>
+                    <div class="trait-card">
+                        <div class="trait-title">
+                            <div class="trait-icon"><i class="fas fa-target"></i></div>
+                            Unknown
+                        </div>
+                        <div class="evidence-list">
+                
+                            <div class="evidence-item">
+                                <span class="evidence-type">POST</span>
+                                <div class="evidence-content">
+                                    "Productive weekend activities in LKO? [removed]"
+                                </div>
+                                <div class="evidence-explanation">
+                                    <i class="fas fa-lightbulb"></i> Seeks social activities and community engagement
+                                </div>
+                            </div>
+                        </div></div>
+                    <div class="trait-card">
+                        <div class="trait-title">
+                            <div class="trait-icon"><i class="fas fa-target"></i></div>
+                            Unknown
+                        </div>
+                        <div class="evidence-list">
+                
+                            <div class="evidence-item">
+                                <span class="evidence-type">POST</span>
+                                <div class="evidence-content">
+                                    "Everyone is something in LKO Born and raised in Delhi - I shifted to LKO in Dec 24 for business purposes. I have hardly seen a car which does not have a sticker on it - everyone is uttar pradesh sarka..."
+                                </div>
+                                <div class="evidence-explanation">
+                                    <i class="fas fa-lightbulb"></i> Attempts to understand local customs and culture
+                                </div>
+                            </div>
+                        </div></div>
+                </div>
+            </div>
+
+            <!-- Frustrations Tab -->
+            <div id="frustrations" class="tab-content">
+                <div class="section-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Frustrations
+                </div>
+                
+                <div class="trait-grid">
+                    
+                    <div class="trait-card">
+                        <div class="trait-title">
+                            <div class="trait-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                            Unknown
+                        </div>
+                        <div class="evidence-list">
+                
+                            <div class="evidence-item">
+                                <span class="evidence-type">POST</span>
+                                <div class="evidence-content">
+                                    "Everyone is something in LKO Born and raised in Delhi - I shifted to LKO in Dec 24 for business purposes. I have hardly seen a car which does not have a sticker on it - everyone is uttar pradesh sarka..."
+                                </div>
+                                <div class="evidence-explanation">
+                                    <i class="fas fa-lightbulb"></i> Expresses confusion about local cultural practices
+                                </div>
+                            </div>
+                        </div></div>
+                    <div class="trait-card">
+                        <div class="trait-title">
+                            <div class="trait-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                            Unknown
+                        </div>
+                        <div class="evidence-list">
+                
+                            <div class="evidence-item">
+                                <span class="evidence-type">COMMENT</span>
+                                <div class="evidence-content">
+                                    "Malls are a thing of past - and entire LKO is on steroids in rents cost, despite low to no demand."
+                                </div>
+                                <div class="evidence-explanation">
+                                    <i class="fas fa-lightbulb"></i> Expresses concerns about high costs and economic issues
+                                </div>
+                            </div>
+                        </div></div>
+                    <div class="trait-card">
+                        <div class="trait-title">
+                            <div class="trait-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                            Unknown
+                        </div>
+                        <div class="evidence-list">
+                
+                            <div class="evidence-item">
+                                <span class="evidence-type">COMMENT</span>
+                                <div class="evidence-content">
+                                    "I was caught without helmet and license (close to my home). Cops outright wanted to fine me, but a 'common guy' came in and discussed bribe on my behalf with cops. I gave him 200rs (back in 2011) and ..."
+                                </div>
+                                <div class="evidence-explanation">
+                                    <i class="fas fa-lightbulb"></i> Shares experiences with corrupt practices
+                                </div>
+                            </div>
+                        </div></div>
+                    <div class="trait-card">
+                        <div class="trait-title">
+                            <div class="trait-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                            Unknown
+                        </div>
+                        <div class="evidence-list">
+                
+                            <div class="evidence-item">
+                                <span class="evidence-type">COMMENT</span>
+                                <div class="evidence-content">
+                                    "Cops keep a civ around to discuss bribes."
+                                </div>
+                                <div class="evidence-explanation">
+                                    <i class="fas fa-lightbulb"></i> Shares experiences with corrupt practices
+                                </div>
+                            </div>
+                        </div></div>
+                </div>
+            </div>
+
+            <!-- Sources Tab -->
+            <div id="sources" class="tab-content">
+                <div class="section-title">
+                    <i class="fas fa-database"></i>
+                    Source Summary
+                </div>
+                
+                <div class="source-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Posts Analyzed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Comments Analyzed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">6</div>
+                        <div class="stat-label">Subreddits</div>
+                    </div>
+                </div>
+                
+                <div class="source-summary">
+                    <h3><i class="fas fa-list"></i> Post Titles</h3>
+                    <ul class="post-list">
+                        <li>Reading Cafe / Reader' Club?</li><li>Productive weekend activities in LKO?</li><li>Everyone is something in LKO</li>
+                    </ul>
+                    
+                    <h3><i class="fas fa-comments"></i> Active Subreddits</h3>
+                    <div class="subreddit-tags">
+                        <span class="subreddit-tag">r/nagpur</span><span class="subreddit-tag">r/indiasocial</span><span class="subreddit-tag">r/amiugly</span><span class="subreddit-tag">r/IndiaUnfilter</span><span class="subreddit-tag">r/lucknow</span><span class="subreddit-tag">r/delhi</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="back-to-top" onclick="scrollToTop()">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script>
+        function showTab(tabName) {
+            // Hide all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(tabName).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+        }
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide back to top button
+        window.addEventListener('scroll', () => {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Add smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

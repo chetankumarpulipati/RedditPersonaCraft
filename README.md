@@ -29,9 +29,6 @@ RedditPersonaCraft is an advanced AI-powered system that analyzes Reddit user be
 4. **Text File Output** - Generates structured text files with persona data
 5. **LLM Integration** - Uses Transformers library with DistilGPT-2 for AI analysis
 
-### ❌ **Missing Critical Feature:**
-- **Citation System**: Currently does NOT provide source citations linking persona characteristics to specific posts/comments that generated them (this was a key requirement)
-
 ## �🛠️ Technical Architecture
 
 ### Core Technologies
@@ -43,13 +40,13 @@ RedditPersonaCraft is an advanced AI-powered system that analyzes Reddit user be
 - **Beautiful HTML/CSS**: Professional UI design
 
 ### System Components
-
-1. **Data Acquisition Module** (`reddit_scraper.py`)
+Source File: main.ipynb
+1. **Data Acquisition Module** (`reddit_scraper`)
    - PRAW API integration for authenticated requests
    - Web scraping fallback for public data
    - Rate limiting and error handling
 
-2. **AI Processing Engine** (`persona_builder.py`)
+2. **AI Processing Engine** (`persona_builder`)
    - Text chunking and preprocessing
    - Transformer-based persona generation
    - Dynamic field extraction and validation
@@ -84,26 +81,20 @@ pip install transformers python-dotenv praw tqdm torch flask requests beautifuls
 ### Environment Setup
 Create a `.env` file:
 ```env
-REDDIT_CLIENT_ID=your_client_id
-REDDIT_CLIENT_SECRET=your_client_secret
-REDDIT_USER_AGENT=RedditPersonaCraft/1.0 by /u/yourusername
-LLM_PROVIDER=transformers
-TRANSFORMERS_MODEL=distilgpt2
+REDDIT_CLIENT_ID=Sg10lDz3e8ECjFUxQDn4FA
+REDDIT_CLIENT_SECRET=6XSlEsuV5fo_eRK_0RN3uLvcGzGPXQ
+REDDIT_USER_AGENT=u/userhuamn
 ```
 
 ### Running the Application
 
 1. **Start the Jupyter Notebook**:
-   ```bash
-   jupyter notebook main.ipynb
-   ```
+   1. Open Vs Code and open the cloned folder
+   2. Select Kernel and Python Version
+   3. Click on Run All in VS Code
+   4. Enter reddit user url when prompted
 
-2. **Execute the cells sequentially** to:
-   - Initialize the Flask web server
-   - Input a Reddit profile URL
-   - Generate and view personas
-
-3. **Access the web interface**:
+2. **Access the web interface**:
    - Persona List: `http://127.0.0.1:5000/persona/`
    - Individual Persona: `http://127.0.0.1:5000/persona/html/{username}`
 
@@ -196,7 +187,6 @@ RedditPersonaCraft/
 
 ## ⚠️ Current Limitations
 
-- **Citation System**: The current implementation does NOT provide source citations for each persona characteristic (this is a key missing feature from the original requirements)
 - **Limited Model**: Uses DistilGPT-2 which may not provide the most accurate persona analysis
 - **No Confidence Scoring**: No indication of how confident the AI is about each prediction
 

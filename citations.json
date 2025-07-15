@@ -1,0 +1,405 @@
+{
+  "demographics": {
+    "name": {
+      "value": "Unknown",
+      "citations": []
+    },
+    "age": {
+      "value": "25-35 (estimated)",
+      "citations": [
+        {
+          "type": "comment",
+          "subreddit": "nagpur",
+          "content": "I was caught without helmet and license (close to my home). Cops outright wanted to fine me, but a 'common guy' came in and discussed bribe on my behalf with cops. I gave him 200rs (back in 2011) and ...",
+          "evidence": "Time reference 'back in 2011' suggests age range"
+        }
+      ]
+    },
+    "occupation": {
+      "value": "Business/Professional",
+      "citations": [
+        {
+          "type": "post",
+          "title": "Everyone is something in LKO",
+          "content": "Everyone is something in LKO Born and raised in Delhi - I shifted to LKO in Dec 24 for business purposes. I have hardly seen a car which does not have a sticker on it - everyone is uttar pradesh sarka...",
+          "evidence": "Mentioned 'business' suggesting professional background"
+        }
+      ]
+    },
+    "location": {
+      "value": "Lucknow",
+      "citations": [
+        {
+          "type": "post",
+          "title": "Productive weekend activities in LKO?",
+          "content": "Productive weekend activities in LKO? [removed]",
+          "evidence": "Mentioned 'LKO' in post"
+        },
+        {
+          "type": "post",
+          "title": "Everyone is something in LKO",
+          "content": "Everyone is something in LKO Born and raised in Delhi - I shifted to LKO in Dec 24 for business purposes. I have hardly seen a car which does not have a sticker on it - everyone is uttar pradesh sarka...",
+          "evidence": "Mentioned 'shifted to' in post"
+        },
+        {
+          "type": "post",
+          "title": "Everyone is something in LKO",
+          "content": "Everyone is something in LKO Born and raised in Delhi - I shifted to LKO in Dec 24 for business purposes. I have hardly seen a car which does not have a sticker on it - everyone is uttar pradesh sarka...",
+          "evidence": "Mentioned 'in Delhi' in post"
+        },
+        {
+          "type": "post",
+          "title": "Everyone is something in LKO",
+          "content": "Everyone is something in LKO Born and raised in Delhi - I shifted to LKO in Dec 24 for business purposes. I have hardly seen a car which does not have a sticker on it - everyone is uttar pradesh sarka...",
+          "evidence": "Mentioned 'LKO' in post"
+        }
+      ]
+    },
+    "status": {
+      "value": "Unknown",
+      "citations": []
+    }
+  },
+  "traits": [
+    {
+      "trait": "Curious/Intellectual",
+      "citations": [
+        {
+          "type": "post",
+          "title": "Reading Cafe / Reader' Club?",
+          "content": "Reading Cafe / Reader' Club? [removed]",
+          "evidence": "Shows interest in intellectual activities like reading cafes and productive activities"
+        }
+      ]
+    },
+    {
+      "trait": "Curious/Intellectual",
+      "citations": [
+        {
+          "type": "post",
+          "title": "Productive weekend activities in LKO?",
+          "content": "Productive weekend activities in LKO? [removed]",
+          "evidence": "Shows interest in intellectual activities like reading cafes and productive activities"
+        }
+      ]
+    },
+    {
+      "trait": "Observant",
+      "citations": [
+        {
+          "type": "post",
+          "title": "Everyone is something in LKO",
+          "content": "Everyone is something in LKO Born and raised in Delhi - I shifted to LKO in Dec 24 for business purposes. I have hardly seen a car which does not have a sticker on it - everyone is uttar pradesh sarka...",
+          "evidence": "Makes detailed observations about local culture and people"
+        }
+      ]
+    },
+    {
+      "trait": "Direct Communicator",
+      "citations": [
+        {
+          "type": "comment",
+          "subreddit": "delhi",
+          "content": "Scam.",
+          "evidence": "Uses concise, direct language to express opinions"
+        }
+      ]
+    },
+    {
+      "trait": "Street-smart/Experienced",
+      "citations": [
+        {
+          "type": "comment",
+          "subreddit": "nagpur",
+          "content": "I was caught without helmet and license (close to my home). Cops outright wanted to fine me, but a 'common guy' came in and discussed bribe on my behalf with cops. I gave him 200rs (back in 2011) and ...",
+          "evidence": "Shares practical knowledge about dealing with authority figures"
+        }
+      ]
+    },
+    {
+      "trait": "Street-smart/Experienced",
+      "citations": [
+        {
+          "type": "comment",
+          "subreddit": "nagpur",
+          "content": "Cops keep a civ around to discuss bribes.",
+          "evidence": "Shares practical knowledge about dealing with authority figures"
+        }
+      ]
+    }
+  ],
+  "motivations": [
+    {
+      "motivation": "Community Engagement",
+      "citations": [
+        {
+          "type": "post",
+          "title": "Reading Cafe / Reader' Club?",
+          "content": "Reading Cafe / Reader' Club? [removed]",
+          "evidence": "Actively seeks community activities and social engagement"
+        }
+      ]
+    },
+    {
+      "motivation": "Community Engagement",
+      "citations": [
+        {
+          "type": "post",
+          "title": "Productive weekend activities in LKO?",
+          "content": "Productive weekend activities in LKO? [removed]",
+          "evidence": "Actively seeks community activities and social engagement"
+        }
+      ]
+    },
+    {
+      "motivation": "Understanding/Knowledge",
+      "citations": [
+        {
+          "type": "post",
+          "title": "Everyone is something in LKO",
+          "content": "Everyone is something in LKO Born and raised in Delhi - I shifted to LKO in Dec 24 for business purposes. I have hardly seen a car which does not have a sticker on it - everyone is uttar pradesh sarka...",
+          "evidence": "Shows desire to understand local culture and phenomena"
+        }
+      ]
+    }
+  ],
+  "personality": [
+    {
+      "trait": "Inquisitive",
+      "citations": [
+        {
+          "type": "post",
+          "title": "Reading Cafe / Reader' Club?",
+          "evidence": "Frequently asks questions to gather information"
+        }
+      ]
+    },
+    {
+      "trait": "Inquisitive",
+      "citations": [
+        {
+          "type": "post",
+          "title": "Productive weekend activities in LKO?",
+          "evidence": "Frequently asks questions to gather information"
+        }
+      ]
+    }
+  ],
+  "habits": [
+    {
+      "habit": "Active Reddit User",
+      "citations": [
+        {
+          "type": "analysis",
+          "content": "Created 3 posts and 12 comments",
+          "evidence": "Regular posting and commenting activity"
+        }
+      ]
+    },
+    {
+      "habit": "Multi-community Participant",
+      "citations": [
+        {
+          "type": "analysis",
+          "content": "Active in 6 different subreddits: nagpur, indiasocial, amiugly",
+          "evidence": "Engages across multiple communities"
+        }
+      ]
+    }
+  ],
+  "goals": [
+    {
+      "goal": "Social Connection",
+      "citations": [
+        {
+          "type": "post",
+          "title": "Reading Cafe / Reader' Club?",
+          "content": "Reading Cafe / Reader' Club? [removed]",
+          "evidence": "Seeks social activities and community engagement"
+        }
+      ]
+    },
+    {
+      "goal": "Social Connection",
+      "citations": [
+        {
+          "type": "post",
+          "title": "Productive weekend activities in LKO?",
+          "content": "Productive weekend activities in LKO? [removed]",
+          "evidence": "Seeks social activities and community engagement"
+        }
+      ]
+    },
+    {
+      "goal": "Understanding Local Culture",
+      "citations": [
+        {
+          "type": "post",
+          "title": "Everyone is something in LKO",
+          "content": "Everyone is something in LKO Born and raised in Delhi - I shifted to LKO in Dec 24 for business purposes. I have hardly seen a car which does not have a sticker on it - everyone is uttar pradesh sarka...",
+          "evidence": "Attempts to understand local customs and culture"
+        }
+      ]
+    }
+  ],
+  "frustrations": [
+    {
+      "frustration": "Cultural Confusion",
+      "citations": [
+        {
+          "type": "post",
+          "title": "Everyone is something in LKO",
+          "content": "Everyone is something in LKO Born and raised in Delhi - I shifted to LKO in Dec 24 for business purposes. I have hardly seen a car which does not have a sticker on it - everyone is uttar pradesh sarka...",
+          "evidence": "Expresses confusion about local cultural practices"
+        }
+      ]
+    },
+    {
+      "frustration": "Economic Concerns",
+      "citations": [
+        {
+          "type": "comment",
+          "subreddit": "lucknow",
+          "content": "Malls are a thing of past - and entire LKO is on steroids in rents cost, despite low to no demand.",
+          "evidence": "Expresses concerns about high costs and economic issues"
+        }
+      ]
+    },
+    {
+      "frustration": "System Corruption",
+      "citations": [
+        {
+          "type": "comment",
+          "subreddit": "nagpur",
+          "content": "I was caught without helmet and license (close to my home). Cops outright wanted to fine me, but a 'common guy' came in and discussed bribe on my behalf with cops. I gave him 200rs (back in 2011) and ...",
+          "evidence": "Shares experiences with corrupt practices"
+        }
+      ]
+    },
+    {
+      "frustration": "System Corruption",
+      "citations": [
+        {
+          "type": "comment",
+          "subreddit": "nagpur",
+          "content": "Cops keep a civ around to discuss bribes.",
+          "evidence": "Shares experiences with corrupt practices"
+        }
+      ]
+    }
+  ],
+  "sources": {
+    "posts": [
+      {
+        "type": "post",
+        "title": "Reading Cafe / Reader' Club?",
+        "selftext": "[removed]",
+        "url": "https://www.reddit.com/r/lucknow/comments/1lzuq0r/reading_cafe_reader_club/",
+        "subreddit": "lucknow",
+        "created_utc": 1752518553.0
+      },
+      {
+        "type": "post",
+        "title": "Productive weekend activities in LKO?",
+        "selftext": "[removed]",
+        "url": "https://www.reddit.com/r/lucknow/comments/1lx50qm/productive_weekend_activities_in_lko/",
+        "subreddit": "lucknow",
+        "created_utc": 1752235204.0
+      },
+      {
+        "type": "post",
+        "title": "Everyone is something in LKO",
+        "selftext": "Born and raised in Delhi - I shifted to LKO in Dec 24 for business purposes. I have hardly seen a car which does not have a sticker on it - everyone is uttar pradesh sarkar, adhiwakta, nyay palika, mahamantri, skoda laura, adrak lsson. \n\n\nWhat is the obsession peeps. ",
+        "url": "https://www.reddit.com/r/lucknow/comments/1lwyhny/everyone_is_something_in_lko/",
+        "subreddit": "lucknow",
+        "created_utc": 1752210733.0
+      }
+    ],
+    "comments": [
+      {
+        "type": "comment",
+        "body": "Scam.",
+        "subreddit": "delhi",
+        "created_utc": 1752582402.0,
+        "link_url": "https://www.reddit.com/r/delhi/comments/1lzqlj2/real_hiring_or_something_fishy/n3902xk/"
+      },
+      {
+        "type": "comment",
+        "body": "Malls are a thing of past - and entire LKO is on steroids in rents cost, despite low to no demand.",
+        "subreddit": "lucknow",
+        "created_utc": 1752518455.0,
+        "link_url": "https://www.reddit.com/r/lucknow/comments/1lzfhve/what_has_happened_to_malls_like_wave_one_awadh/n34g4ea/"
+      },
+      {
+        "type": "comment",
+        "body": "I was caught without helmet and license (close to my home). Cops outright wanted to fine me, but a 'common guy' came in and discussed bribe on my behalf with cops. I gave him 200rs (back in 2011) and Cops let me go.\n\nHe was not a common man. He was their agent and shield. If I or anyone recorded myself handing out money, it would be to a common man, not cops directly.",
+        "subreddit": "nagpur",
+        "created_utc": 1752436397.0,
+        "link_url": "https://www.reddit.com/r/nagpur/comments/1lyb0p5/a_very_odd_experience/n2ybup0/"
+      },
+      {
+        "type": "comment",
+        "body": "Cops keep a civ around to discuss bribes.",
+        "subreddit": "nagpur",
+        "created_utc": 1752435083.0,
+        "link_url": "https://www.reddit.com/r/nagpur/comments/1lyb0p5/a_very_odd_experience/n2y7g0s/"
+      },
+      {
+        "type": "comment",
+        "body": "Toh hum Noida or Ghaziabad se pahadio ko bhagana shuru karein fir? 😂 Bhukmari ajaegi",
+        "subreddit": "IndiaUnfilter",
+        "created_utc": 1752402701.0,
+        "link_url": "https://www.reddit.com/r/IndiaUnfilter/comments/1lw6ijt/people_are_smoking_hookah_in_the_middle_of_the/n2vkdpb/"
+      },
+      {
+        "type": "comment",
+        "body": "A menu easy to cook/process - healthy and quick.",
+        "subreddit": "lucknow",
+        "created_utc": 1752248839.0,
+        "link_url": "https://www.reddit.com/r/lucknow/comments/1lwbwu9/any_tiffin_service_providing_high_quality_food/n2kh3aq/"
+      },
+      {
+        "type": "comment",
+        "body": "Haha Delhi is hateable too but mostly those are HR or UP14 NCR vehicle. Plus the percentage of vehicles of such sort is low.",
+        "subreddit": "lucknow",
+        "created_utc": 1752223581.0,
+        "link_url": "https://www.reddit.com/r/lucknow/comments/1lwyhny/everyone_is_something_in_lko/n2ilsqh/"
+      },
+      {
+        "type": "comment",
+        "body": "Its about the volume/%. The number of cars having these stickers is way too high compared to Delhi, or anywhere else.",
+        "subreddit": "lucknow",
+        "created_utc": 1752221108.0,
+        "link_url": "https://www.reddit.com/r/lucknow/comments/1lwyhny/everyone_is_something_in_lko/n2ihjjp/"
+      },
+      {
+        "type": "comment",
+        "body": "Never seen anything of this sort in capital city of India. So yes I did not expect 🤪",
+        "subreddit": "lucknow",
+        "created_utc": 1752220630.0,
+        "link_url": "https://www.reddit.com/r/lucknow/comments/1lwyhny/everyone_is_something_in_lko/n2igp7d/"
+      },
+      {
+        "type": "comment",
+        "body": "Dont you have big muscle brothers or friends? or cop/lawyer friends? My hands are always itching to teach a lesson to such people.",
+        "subreddit": "indiasocial",
+        "created_utc": 1752210396.0,
+        "link_url": "https://www.reddit.com/r/indiasocial/comments/1lwl70s/a_45_year_old_man_is_harassing_me/n2hx8z7/"
+      },
+      {
+        "type": "comment",
+        "body": "Same problem. I started eating power meals at home atleast saves me from crap quality. I even purchased a 250 per meal tiffin and it had palm oil!!!",
+        "subreddit": "lucknow",
+        "created_utc": 1752209665.0,
+        "link_url": "https://www.reddit.com/r/lucknow/comments/1lwbwu9/any_tiffin_service_providing_high_quality_food/n2hvomb/"
+      },
+      {
+        "type": "comment",
+        "body": "Below Average.",
+        "subreddit": "amiugly",
+        "created_utc": 1693487633.0,
+        "link_url": "https://www.reddit.com/r/amiugly/comments/16650bx/deleted_by_user/jyikpuz/"
+      }
+    ]
+  }
+}
