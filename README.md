@@ -157,14 +157,9 @@ RedditPersonaCraft/
 Below are example screenshots from the application. Add your own images to the `screenshots/` folder and reference them in the README as shown below:
 
 ```markdown
-![Screenshot Title](screenshots/v-1.0.png)
+![Version 1.0](screenshots/v-1.0.png)
+![Version 2.0](screenshots/v-2.0.png)
 ```
-
----
-
-### Additional Screenshots
-![Web Interface](screenshots/web_interface.png)
-![Output Folder Example](screenshots/v-2.0.png)
 
 ## 🔧 Technical Implementation Details
 
