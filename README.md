@@ -1,4 +1,25 @@
 # 🎭 RedditPersonaCraft
+# Versioning
+
+
+## 🗂️ Version 1.0
+Initial release with core persona generation, data scraping, AI analysis, and web interface.
+
+### Example Output (Version 1.0)
+![Version 1 Persona Card](screenshots/version1_persona_card.png)
+
+---
+
+## 🆕 Version 2.0
+Implemented source citation system: persona attributes now link to specific Reddit posts/comments.
+Citation reports generated in HTML and text formats.
+Improved output structure and traceability.
+
+### Example Output (Version 2.0)
+![Version 2 Persona Card](screenshots/version2_persona_card.png)
+![Citation Report Example](screenshots/citation_report_example.png)
+
+---
 
 **AI-Powered Reddit User Persona Generation System**
 
@@ -118,15 +139,32 @@ reddit_url = "https://www.reddit.com/user/example_user"
 RedditPersonaCraft/
 ├── main.ipynb                 # Main application notebook
 ├── templates/
-│   └── sample1.html          # Persona HTML template
+│   └── sample1.html           # Persona HTML template
 ├── output/
-│   ├── {username}.html       # Generated persona pages
-│   └── {username}_persona.txt # Raw persona text
-├── ai.json                   # AI-generated persona data
-├── temp.json                 # Temporary scraped data
-├── .env                      # Environment variables
-└── README.md                 # This file
+│   ├── {username}.html        # Generated persona pages
+│   ├── {username}_persona.txt # Raw persona text
+│   ├── {username}_citation_report.html # Citation report (HTML)
+│   └── {username}_citation_report.txt  # Citation report (text)
+├── screenshots/               # Add screenshots here for documentation
+├── ai.json                    # AI-generated persona data
+├── temp.json                  # Temporary scraped data
+├── .env                       # Environment variables
+└── README.md                  # This file
 ```
+
+## 📸 Screenshots
+
+Below are example screenshots from the application. Add your own images to the `screenshots/` folder and reference them in the README as shown below:
+
+```markdown
+![Screenshot Title](screenshots/v-1.0.png)
+```
+
+---
+
+### Additional Screenshots
+![Web Interface](screenshots/web_interface.png)
+![Output Folder Example](screenshots/v-2.0.png)
 
 ## 🔧 Technical Implementation Details
 
@@ -187,12 +225,22 @@ RedditPersonaCraft/
 
 ## ⚠️ Current Limitations
 
-- **Limited Model**: Uses DistilGPT-2 which may not provide the most accurate persona analysis
-- **No Confidence Scoring**: No indication of how confident the AI is about each prediction
+
+**Limited Model**: Uses DistilGPT-2 which may not provide the most accurate persona analysis
+**No Confidence Scoring**: No indication of how confident the AI is about each prediction
+
+## 📑 Citation System
+
+### Implemented Feature
+- **Source Citation System**: Each persona characteristic is now linked to specific Reddit posts/comments that contributed to its generation. Citation reports are generated in both HTML and text formats for transparency and traceability.
+
+Citation files are saved in the `output/` directory:
+  - `{username}_citation_report.html`
+  - `{username}_citation_report.txt`
+
+This allows users to review the evidence behind each persona attribute and ensures the AI's analysis is auditable.
 
 ## 🌟 Future Enhancements
-
-- [ ] **Source Citation System**: Link each persona characteristic to specific posts/comments that generated it
 - [ ] Multiple LLM provider support (OpenAI, Claude, etc.)
 - [ ] Advanced sentiment analysis integration
 - [ ] Batch processing for multiple users
