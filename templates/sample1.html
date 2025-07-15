@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lucas Mellor - Persona</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #000;
+      padding: 20px;
+      font-size: 13px;
+      color: #333;
+    }
+
+    .card {
+      background: white;
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .layout {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .column {
+      flex: 1;
+      min-width: 240px;
+      background: #fafafa;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .left-column {
+      max-width: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .left-column img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .quote {
+      background-color: #e94e1b;
+      color: white;
+      font-style: italic;
+      font-size: 12px;
+      padding: 10px;
+      border-radius: 6px;
+    }
+
+    h1 {
+      color: #e94e1b;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    h3 {
+      font-size: 14px;
+      margin-top: 12px;
+      margin-bottom: 4px;
+    }
+
+    h3::after {
+      content: "";
+      display: block;
+      height: 1px;
+      background: #ccc;
+      margin-top: 4px;
+    }
+
+    .info-list{
+        font-size: 13px;
+    }
+
+    .info-list p {
+      margin-bottom: 4px;
+    }
+
+    .trait-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4px 10px;
+      margin-bottom: 10px;
+      font-size: 13px;
+    }
+    .trait-box {
+      background: #e94e1b;
+      color: #fff;
+      border-radius: 5px;
+      padding: 6px 12px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 500;
+      margin-bottom: 4px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    .motivation-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .motivation-row span {
+      min-width: 110px;
+      font-size: 13px;
+    }
+
+    .bar {
+      flex: 1;
+      background: #ddd;
+      height: 6px;
+      border-radius: 3px;
+      margin: 0;
+    }
+
+    .bar-fill {
+      height: 6px;
+      background: #555;
+      border-radius: 3px;
+    }
+
+    ul {
+      margin: 4px 0 10px 20px;
+      padding: 0;
+    }
+
+    ul li {
+      margin-bottom: 4px;
+    }
+
+    .personality-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .personality-row span {
+      min-width: 80px;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .left-column {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="layout columns">
+      <!-- Left Column -->
+      <div class="column left-column">
+        <img src="https://styles.redditmedia.com/t5_6zabzi/styles/communityIcon_m4kry55rs0m91.png?width=128&frame=1&auto=webp&s=c91a28d237fe9d3973fd33faec71ddfe4685f785" alt="Lucas Mellor" />
+        <div class="quote">“I want to spend less time ordering a healthy takeaway and more time enjoying my meal.”</div>
+      </div>
+
+      <!-- Middle Column -->
+      <div class="column">
+        <h1>Lucas Mellor</h1>
+        <hr>
+        <div class="info-list">
+          <p><strong>Age:</strong> 31</p>
+          <p><strong>Occupation:</strong> Content Manager</p>
+          <p><strong>Status:</strong> Single</p>
+          <p><strong>Location:</strong> London, UK</p>
+          <p><strong>Tier:</strong> Early Adopters</p>
+          <p><strong>Archetype:</strong> The Creator</p>
+          <hr>
+          <p><strong>Traits:</strong></p>
+          <div class="trait-grid">
+            <div class="trait-box">Practical</div>
+            <div class="trait-box">Adaptable</div>
+            <div class="trait-box">Spontaneous</div>
+            <div class="trait-box">Active</div>
+          </div>
+        </div>
+        <h3>Motivations</h3>
+        <div class="motivation-row"><span><strong>Convenience</strong></span><div class="bar"><div class="bar-fill" style="width:100%"></div></div></div>
+        <div class="motivation-row"><span><strong>Wellness</strong></span><div class="bar"><div class="bar-fill" style="width:90%"></div></div></div>
+        <div class="motivation-row"><span><strong>Speed</strong></span><div class="bar"><div class="bar-fill" style="width:85%"></div></div></div>
+        <div class="motivation-row"><span><strong>Preferences</strong></span><div class="bar"><div class="bar-fill" style="width:70%"></div></div></div>
+        <div class="motivation-row"><span><strong>Comfort</strong></span><div class="bar"><div class="bar-fill" style="width:60%"></div></div></div>
+        <div class="motivation-row"><span><strong>Dietary Needs</strong></span><div class="bar"><div class="bar-fill" style="width:80%"></div></div></div>
+        <h3>Personality</h3>
+        <div class="personality-row"><span>Introvert</span><div class="bar"><div class="bar-fill" style="width:50%"></div></div><span>Extrovert</span></div>
+        <div class="personality-row"><span>Intuition</span><div class="bar"><div class="bar-fill" style="width:90%"></div></div><span>Sensing</span></div>
+        <div class="personality-row"><span>Feeling</span><div class="bar"><div class="bar-fill" style="width:30%"></div></div><span>Thinking</span></div>
+        <div class="personality-row"><span>Perceiving</span><div class="bar"><div class="bar-fill" style="width:75%"></div></div><span>Judging</span></div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="column">
+        <h3>Behaviour & Habits</h3>
+        <ul>
+          <li>Rarely cooked before lockdown</li>
+          <li>Orders all meals online</li>
+          <li>Joined online HIIT sessions</li>
+          <li>Struggles with work-life balance</li>
+          <li>Tries to choose healthy options</li>
+          <li>Orders takeaway 3–4 times/week</li>
+        </ul>
+        <h3>Goals & Needs</h3>
+        <ul>
+          <li>Maintain healthy lifestyle during lockdown</li>
+          <li>Wants full meal info before ordering</li>
+          <li>Select based on dietary needs</li>
+          <li>Swift delivery and easy ordering</li>
+        </ul>
+      </div>
+
+      <div class="column">
+        <!-- Column 4: Frustrations -->
+        <h3>Frustrations</h3>
+        <ul>
+          <li>Menus lack images or descriptions</li>
+          <li>No healthy food category</li>
+          <li>Unclear meal contents</li>
+          <li>Pre-orders not labeled properly</li>
+          <li>Confusing restaurant menus</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
