@@ -101,9 +101,9 @@ pip install transformers python-dotenv praw tqdm torch flask requests beautifuls
 ### Environment Setup
 Create a `.env` file:
 ```env
-REDDIT_CLIENT_ID=Sg10lDz3e8ECjFUxQDn4FA
-REDDIT_CLIENT_SECRET=6XSlEsuV5fo_eRK_0RN3uLvcGzGPXQ
-REDDIT_USER_AGENT=u/userhuamn
+REDDIT_CLIENT_ID=<id>
+REDDIT_CLIENT_SECRET=<id>
+REDDIT_USER_AGENT=<id>
 ```
 
 ### Running the Application
